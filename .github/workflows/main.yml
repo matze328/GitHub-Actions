@@ -1,7 +1,11 @@
 name: GitHub Actions Demo
-on: [push]
+on:
+  push:
+  issues:
+    types: [opened, edited]
+
 jobs:
-  Explore-GitHub-Actions:
+  changed-job:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -15,4 +19,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: farewell
+        run: echo "Bye bye!"
+
 
