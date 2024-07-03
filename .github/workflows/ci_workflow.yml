@@ -1,0 +1,31 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Hello from lint & from branch
+      run: |
+        echo "Hello from lint & from ${GITHUB_REF##*/}"
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Hello from test & from branch
+      run: |
+        echo "Hello from test & from ${GITHUB_REF##*/}"
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Hello from deploy & from branch
+      run: |
+        echo "Hello from deploy & from ${GITHUB_REF##*/}"
